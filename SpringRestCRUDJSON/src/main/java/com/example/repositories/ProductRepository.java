@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.example.dto.ProductDto;
+import com.example.entities.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,7 +18,7 @@ public class ProductRepository implements IProductRepository{
 	private final String FILE_PATH = "src/main/resources/products.json";
     private final ObjectMapper objectMapper = new ObjectMapper();
     
-    private List<ProductDto> products;
+    private List<Product> products;
     
     public ProductRepository() {
 		loadProducts();
@@ -27,7 +28,7 @@ public class ProductRepository implements IProductRepository{
         try {
             File file = new File(FILE_PATH);
             if (file.exists()) {
-                products = objectMapper.readValue(file, new TypeReference<List<ProductDto>>() {});
+                products = objectMapper.readValue(file, new TypeReference<List<Product>>() {});
             } else {
                 products = new ArrayList<>();
             }
@@ -46,7 +47,7 @@ public class ProductRepository implements IProductRepository{
     }
     
 	@Override
-	public void save(ProductDto product) {
+	public void save(Product product) {
 		if(product != null) {
 		    products.add(product);
 		    saveProducts();
@@ -54,22 +55,22 @@ public class ProductRepository implements IProductRepository{
 	}
 
 	@Override
-	public List<ProductDto> getAll() {
+	public List<Product> getAll() {
 		return products;
 	}
 
 	@Override
-	public ProductDto getById(int id) {
-		for (ProductDto productDto : products) {
-			if(productDto.getId() == id) {
-				return productDto;
+	public Product getById(int id) {
+		for (Product product : products) {
+			if(product.getId() == id) {
+				return product;
 			}
 		}
 		return null;
 	}
 
 	@Override
-	public boolean updateById(int id, ProductDto updatedProduct) {
+	public boolean updateById(int id, Product updatedProduct) {
 		for (int i = 0; i < products.size(); i++) {
 			int productId = products.get(i).getId();
 			System.out.println(productId);

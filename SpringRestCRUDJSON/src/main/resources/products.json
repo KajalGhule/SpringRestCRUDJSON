@@ -7,4 +7,13 @@
   "unitPrice" : 10.0,
   "quantity" : 500,
   "likes" : 1000
+}, {
+  "id" : 1,
+  "title" : "Lotus",
+  "category" : "Flower",
+  "description" : "Golden.",
+  "imageUrl" : "https://example.com/images/rose.jpg",
+  "unitPrice" : 10.0,
+  "quantity" : 500,
+  "likes" : 1000
 } ]
