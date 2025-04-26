@@ -1,0 +1,42 @@
+/.metadata/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# Spring Boot specific
+target/
+!src/main/resources/static/**/ # allow static files
+!src/main/resources/public/**/ # allow public files
+!src/main/resources/templates/**/ # allow templates
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.sw?
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Others
+node_modules/
