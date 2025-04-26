@@ -55,13 +55,16 @@ public class ProductRepository implements IProductRepository{
 
 	@Override
 	public List<ProductDto> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return products;
 	}
 
 	@Override
 	public ProductDto getById(int id) {
-		// TODO Auto-generated method stub
+		for (ProductDto productDto : products) {
+			if(productDto.getId() == id) {
+				return productDto;
+			}
+		}
 		return null;
 	}
 

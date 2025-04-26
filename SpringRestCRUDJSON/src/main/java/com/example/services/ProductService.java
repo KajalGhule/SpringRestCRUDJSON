@@ -1,5 +1,7 @@
 package com.example.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,11 @@ public class ProductService {
 	
 	public void save(ProductDto product) {
 		productRepository.save(product);
+	}
+	public List<ProductDto> getAll() {
+		return productRepository.getAll();
+	}
+	public ProductDto getById(int id) {
+		return productRepository.getById(id);
 	}
 }
