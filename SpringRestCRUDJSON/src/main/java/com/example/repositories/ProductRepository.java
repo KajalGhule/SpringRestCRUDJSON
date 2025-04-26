@@ -69,15 +69,27 @@ public class ProductRepository implements IProductRepository{
 	}
 
 	@Override
-	public String deleteById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean updateById(int id, ProductDto updatedProduct) {
+		for (int i = 0; i < products.size(); i++) {
+			int productId = products.get(i).getId();
+			System.out.println(productId);
+	        if (productId == id) {
+	        	updatedProduct.setId(productId);
+	            products.set(i, updatedProduct);
+	            saveProducts(); 
+	            return true;
+	        }
+	    }
+		return false;
 	}
 
 	@Override
-	public String updateById(int id, ProductDto updatedProduct) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean deleteById(int id) {
+		if(products.removeIf(product -> product.getId() == id)) {
+			saveProducts();
+			return true;
+		}
+		return false;
 	}
 
 }

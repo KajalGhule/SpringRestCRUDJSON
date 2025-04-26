@@ -23,4 +23,10 @@ public class ProductService {
 	public ProductDto getById(int id) {
 		return productRepository.getById(id);
 	}
+	public boolean updateById(int id, ProductDto updatedProduct) {
+		return productRepository.updateById(id, updatedProduct);
+	}
+	public boolean deleteById(int id) {
+		return productRepository.deleteById(id);
+	}
 }

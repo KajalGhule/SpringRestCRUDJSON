@@ -18,8 +18,8 @@ public interface IProductRepository {
 	ProductDto getById(int id);
 	
 	//Update by Id
-	String updateById(int id, ProductDto updatedProduct);
+	boolean updateById(int id, ProductDto updatedProduct);
 	
 	//delete By Id
-	String deleteById(int id);
+	boolean deleteById(int id);
 }
