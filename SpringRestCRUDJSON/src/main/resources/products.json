@@ -16,4 +16,13 @@
   "unitPrice" : 10.0,
   "quantity" : 500,
   "likes" : 1000
+}, {
+  "id" : 4,
+  "title" : "Lily",
+  "category" : "Flower",
+  "description" : "Lily flower.",
+  "imageUrl" : "https://example.com/images/lily.jpg",
+  "unitPrice" : 50.0,
+  "quantity" : 500,
+  "likes" : 100
 } ]
