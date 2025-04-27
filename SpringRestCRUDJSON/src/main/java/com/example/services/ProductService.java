@@ -16,13 +16,19 @@ public class ProductService {
 	
 	@Autowired
 	private ProductRepository productRepository;
-	// convert dto to pojo
-	public void save(ProductDto product) { //
+	
+	/*
+	 * Before send product data to repo layer we need to conver it
+	 * to ProductDto to product 
+	 * so we add one helper layer were we can convert product dto to product and product to productdto
+	 * before return to controller
+	 * */
+	public void save(ProductDto product) { 
 		Product p = ModelMapper.productdtoToProduct(product);
 		productRepository.save(p);
 	}
-	public List<ProductDto> getAll() {
-//		return productRepository.getAll();
+	
+	public List<ProductDto> getAll(){
 		List<Product> products = productRepository.getAll();
 	    return products.stream()
 	                   .map(ModelMapper::productToProductdto)
